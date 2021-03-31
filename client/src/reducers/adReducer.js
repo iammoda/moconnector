@@ -12,26 +12,27 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case GET_ADS:
+      console.log('test', payload);
       return {
         ...state,
-        posts: payload,
+        ads: payload,
         loading: false,
       };
     case GET_AD:
       return {
         ...state,
-        post: payload,
+        ad: payload,
         loading: false,
       };
     case ADD_AD:
       return {
         ...state,
-        posts: [payload, ...state.posts],
+        ads: [payload, ...state.ads],
       };
     case DELETE_AD:
       return {
         ...state,
-        posts: state.posts.filter((post) => post._id !== payload),
+        ads: state.ads.filter((ad) => ad._id !== payload),
         loading: false,
       };
     case AD_ERROR:

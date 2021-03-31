@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
+import { deleteAd } from '../../actions/ad';
 
 const AdItem = ({
+  //actions
   deleteAd,
   auth,
-  Ad: { _id, text, name, avatar, user, date },
+  ad: { _id, text, name, avatar, user, date },
   showActions,
 }) => (
   <div class='post bg-white p-1 my-1'>

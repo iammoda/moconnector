@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { ADD_AD, DELETE_AD, GET_AD, GET_ADS, AD_ERROR } from './types';
+import { GET_ADS, ADD_AD, DELETE_AD, GET_AD, AD_ERROR } from './types';
 
 //Get ads
 export const getAds = () => async (dispatch) => {
@@ -52,7 +52,7 @@ export const addAd = (formData) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert('Post Created', 'success'));
+    dispatch(setAlert('Ad Created', 'success'));
   } catch (err) {
     dispatch({
       type: AD_ERROR,

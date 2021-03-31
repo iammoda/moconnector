@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addAd } from '../../actions/post';
+import { addAd } from '../../actions/ad';
 
 const AdForm = ({ addAd }) => {
   const [text, setText] = useState('');
@@ -15,7 +15,7 @@ const AdForm = ({ addAd }) => {
         className='form my-1'
         onSubmit={(e) => {
           e.preventDefault();
-          addPost({ text });
+          addAd({ text });
           setText('');
         }}
       >
@@ -34,8 +34,8 @@ const AdForm = ({ addAd }) => {
   );
 };
 
-PostForm.propTypes = {
-  addPost: PropTypes.func.isRequired,
+AdForm.propTypes = {
+  addAd: PropTypes.func.isRequired,
 };
 
 export default connect(null, { addAd })(AdForm);

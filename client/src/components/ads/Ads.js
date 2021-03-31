@@ -6,23 +6,29 @@ import AdItem from './AdItem';
 import AdForm from './AdForm';
 import { getAds } from '../../actions/ad';
 
-const Ads = ({ getAds, ad: { ads, loading } }) => {
+const Ads = ({
+  //action function
+  getAds,
+  //redux state variables
+  adStateValues: { ads, loading },
+  //other input variables
+}) => {
   useEffect(() => {
     getAds();
   }, [getAds]);
-
+  console.log(ads);
   return loading ? (
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className='large text-primary'>Posts</h1>
+      <h1 className='large text-primary'>Ads</h1>
       <p className='lead'>
         <i className='fas fa-user'>Welcome to the community</i>
       </p>
-      <PostForm />
+      <AdForm />
       <div className='posts'>
-        {ads.map((ad) => (
-          <PostItem key={ad._id} ad={ad} />
+        {ads.map((item, index) => (
+          <AdItem key={index} ad={item} />
         ))}
       </div>
     </Fragment>
@@ -31,11 +37,11 @@ const Ads = ({ getAds, ad: { ads, loading } }) => {
 
 Ads.propTypes = {
   getAds: PropTypes.func.isRequired,
-  ad: PropTypes.object.isRequired,
+  adStateValues: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  ad: state.post,
+  adStateValues: state.adReducer,
 });
 
 export default connect(mapStateToProps, { getAds })(Ads);

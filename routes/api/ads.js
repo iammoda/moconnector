@@ -7,7 +7,7 @@ const Ad = require('../../models/Ads');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
-//post api
+//ad api
 router.post(
   '/',
   [auth, [check('text', 'Text is required').not().isEmpty()]],
