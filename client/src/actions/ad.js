@@ -61,7 +61,7 @@ export const addAd = (formData) => async (dispatch) => {
   }
 };
 
-// Get post
+// Get User's Ads
 export const getAd = (id) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/ads/${id}`);

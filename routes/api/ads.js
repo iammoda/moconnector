@@ -10,7 +10,7 @@ const User = require('../../models/User');
 //ad api
 router.post(
   '/',
-  [auth, [check('text', 'Text is required').not().isEmpty()]],
+  [auth, [check('address', 'Address is required').not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -21,7 +21,9 @@ router.post(
       const user = await User.findById(req.user.id).select('-password');
 
       const newAd = new Ad({
+        address: req.body.address,
         text: req.body.text,
+        price: req.body.price,
         name: user.name,
         avatar: user.avatar,
         user: req.user.id,

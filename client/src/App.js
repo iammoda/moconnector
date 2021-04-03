@@ -15,6 +15,8 @@ import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
 import Ads from './components/ads/Ads';
+import AdForm from './components/ads/AdForm';
+import MyAds from './components/ads/MyAds';
 import PrivateRoute from './components/routing/PrivateRoute';
 //Redux
 import { Provider } from 'react-redux';
@@ -67,6 +69,8 @@ const App = () => {
                 path='/add-education'
                 component={AddEducation}
               />
+              <PrivateRoute exact path='/add-ad' component={AdForm} />
+              <PrivateRoute exact path='/my-ads' component={MyAds} />
               <PrivateRoute exact path='/posts' component={Posts} />
               <PrivateRoute exact path='/posts/:id' component={Post} />
               <PrivateRoute exact path='/ads' component={Ads} />

@@ -21,6 +21,13 @@ const AdSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  address: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: String,
+  },
 });
 
 module.exports = Ad = mongoose.model('ad', AdSchema);

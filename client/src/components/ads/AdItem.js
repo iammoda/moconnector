@@ -9,7 +9,7 @@ const AdItem = ({
   //actions
   deleteAd,
   auth,
-  ad: { _id, text, name, avatar, user, date },
+  ad: { _id, address, price, text, name, avatar, user, date },
   showActions,
 }) => (
   <div class='post bg-white p-1 my-1'>
@@ -20,7 +20,9 @@ const AdItem = ({
       </Link>
     </div>
     <div>
-      <p class='my-1'>{text}</p>
+      <p class='my-1'>Address: {address}</p>
+      <p class='my-1'>Price: {price}</p>
+      <p class='my-1'>Description: {text}</p>
       <p class='post-date'>
         Posted on <Moment format='DD/MM/YYYY'>{date}</Moment>
       </p>
